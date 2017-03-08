@@ -1,0 +1,26 @@
+<div class="bar bar-header bar-positive">
+	<h2 class="title">
+		路线
+	</h2>
+</div>
+
+ 	<div class="list has-header" >
+ 	  <div class="item item-input-inset">
+ 	    <label class="item-input-wrapper position-input">
+ 	      <input type="text" class="inp" placeholder="起点" ng-model="start">
+ 	     
+ 	    </label>
+ 	      <label class="item-input-wrapper position-input">
+ 	    <input type="text" class="inp" placeholder="终点" ng-model="end">
+ 	     </label>
+ 	    <button class="button button-small" ng-click="search()">
+ 	      查询
+ 	    </button>
+ 	  </div>
+ 	</div>
+
+<div id="l-map"></div>
+
+<ion-content class="has-header has-footer" id="maptxt">
+<div id="r-result"></div>
+</ion-content>

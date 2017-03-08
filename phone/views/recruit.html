@@ -1,0 +1,40 @@
+<div class="bar bar-header bar-positive">
+	<h2 class="title">
+		招聘查询
+	</h2>
+</div>
+
+<ion-content class="has-header has-footer">
+	<h3 class="retitle" ng-click="city.show()">所选城市：{{cityshow}} <i class="ion-arrow-down-b"></i></h3>
+	<div class="list list-inset">
+	  <label class="item item-input">
+	    <i class="icon ion-search placeholder-icon"></i>
+	    <input type="text" placeholder="输入查询职位" ng-model="txt" value={{text}}>
+	  </label>
+	</div>
+	<button class="button button-block button-positive search" ng-click="search(txt)">
+	  查询
+	</button>
+	<ul class="list" id="relist" ng-show="list">
+	    <a class="item" ng-repeat="item in list" href={{item.joblink||(item.wapurl)}}>
+	    <h2>
+	    	<span class="retit">{{item.title}}</span>
+	    	<span class="date">{{item.startdate}}</span>
+	    </h2>
+	      <p class="price">{{item.salary}}</p>
+	      <p>
+	      	<span>{{item.district}} |</span>
+	      	{{item.officialname}}
+	      	<span class="date">{{item.source}}</span>
+	      </p>
+	      <p class="require">
+	      	{{item.ori_employertype}}|
+	      	{{item.requirements}}
+	      </p>
+	    </a>
+		<p ng-show="flag&&showdata" class="load">向上滑动加载更多...</p>
+		<p ng-show="!flag&&showdata" class="load">正在加载...</p>
+		<p ng-if="!showdata" class="load">已无更多数据</p>
+	</ul>
+	
+</ion-content>

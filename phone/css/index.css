@@ -1,0 +1,98 @@
+body{
+	font-family: "微软雅黑";
+}
+.has-header .search{
+	width: 90%;
+	margin: 0 auto;
+	min-height: 44px;
+}
+.extit{
+	text-align: center;
+	font-size: 16px;
+	color: #666;
+	padding: 20px 0;
+}
+.item-avatar{
+	padding-left: 16px; 
+}
+.item,.item p{
+	white-space: normal;
+}
+.retitle{
+	font-size: 22px;
+	text-align: center;
+	padding: 15px 0;
+	color: #666;
+}
+.list .price{
+	color: #f60;
+	font-size: 16px;
+	font-weight: 600;
+	padding: 5px 0;
+}
+.retit{
+	font-size: 18px;
+	width: 80%;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+.date{
+	float: right;
+	color: #999;
+	font-size: 14px;
+}
+.require{
+	margin-top: 5px;
+}
+.back{
+	font-size: 18px;
+	line-height: 32px;
+	margin-left: 5px;
+}
+.city-group{
+	padding: 10px;
+}
+.city-group ul{
+	display: flex;
+	flex-wrap: wrap;
+}
+.city-group ul li{
+	width: 25%;
+	box-sizing: border-box;
+	font-size: 18px;
+	line-height: 25px;
+	padding: 3px;
+}
+.city-group p{
+	font-size: 18px;
+	margin: 0 0 10px;
+	border-bottom: 1px solid #6461dd;
+	padding-bottom: 7px;
+}
+.cur-city{
+	text-align: center;
+    font-size: 16px;
+    padding: 10px 0;
+}
+.load{
+	text-align: center;
+	color: #b1b1b1;
+	line-height: 40px;
+	font-size: 20px;
+}
+
+#l-map{height:250px;width:100%;}
+#r-result,#r-result table{width:100%;font-size:16px;}
+#maptxt{
+	top: 320px;
+}
+.position-input{
+	background: none;
+}
+.item .position-input .inp{
+	background: #eee;
+	margin-right: 10px;
+	width: 100%;
+}
