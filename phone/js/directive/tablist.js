@@ -23,7 +23,7 @@ app.directive('tabList', function(){
 			},{
 				link: '#/express',
 				icon: 'ion-android-cart',
-				name: '快递',
+				name: '找房子',
 				active: false
 			},{
 				link: '#/plan',

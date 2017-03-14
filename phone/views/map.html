@@ -7,15 +7,16 @@
  	<div class="list has-header" >
  	  <div class="item item-input-inset">
  	    <label class="item-input-wrapper position-input">
- 	      <input type="text" class="inp" placeholder="起点" ng-model="start">
+ 	      <input type="text" class="inp" placeholder="起点" ng-model="start" id="suggestId">
  	     
  	    </label>
  	      <label class="item-input-wrapper position-input">
- 	    <input type="text" class="inp" placeholder="终点" ng-model="end">
+ 	    <input type="text" class="inp" placeholder="终点" ng-model="end" id="suggestId1">
  	     </label>
  	    <button class="button button-small" ng-click="search()">
  	      查询
  	    </button>
+ 	    <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:150px;height:auto; display:none;"></div>
  	  </div>
  	</div>
 

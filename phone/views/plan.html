@@ -3,3 +3,36 @@
 		备忘录
 	</h2>
 </div>
+<ion-content class="has-header has-footer">
+	<div class="list">
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">面试时间</span>
+	    <input type="text" placeholder="Time for the interview" ng-model="date">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">面试地点</span>
+	    <input type="text" placeholder="Interview location" ng-model="position">
+	  </label>
+	  <label class="item item-input item-stacked-label">
+	    <span class="input-label">备注</span>
+	    <input type="text" placeholder="Remarks" ng-model="other">
+	  </label>
+	</div>
+	<button class="button button-block button-positive search" ng-click="addEvent()">
+	  点击添加事件
+	</button>
+
+
+	<div class="list" ng-repeat="item in list track by $index">
+	    <a class="item item-avatar" href="" ng-click="showDel($index)">
+	      <h2>{{item.date}}</h2>
+	      <p>{{item.position}}</p>
+	      <p>{{item.other}}</p>
+	      
+	    </a>
+	    <i class="ion-trash-a del-logo" ng-click="del($index)" ng-show="item.show"></i>
+	    <i class="ion-gear-b set-logo" ng-click="setPlan($index)" ng-show="item.show"></i>    
+	</div>
+
+</ion-content>
+

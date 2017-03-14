@@ -5,6 +5,7 @@ body{
 	width: 90%;
 	margin: 0 auto;
 	min-height: 44px;
+	margin-bottom: 10px;
 }
 .extit{
 	text-align: center;
@@ -96,3 +97,26 @@ body{
 	margin-right: 10px;
 	width: 100%;
 }
+.item-input-inset{
+	padding: 4px;
+}
+.item-input-wrapper~.button{
+	margin-left: 0;
+}
+.del-logo,.set-logo{
+	position: absolute;
+	right: 28px;
+	font-size: 34px;
+	top: 20px;
+	color: #0c60ee;
+	z-index: 5;
+}
+.set-logo{
+	right: 68px
+}
+
+.popup .item-input{
+	padding-left:10px;
+	padding-right: 10px; 
+}
+

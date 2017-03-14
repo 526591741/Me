@@ -1,8 +1,8 @@
 app.controller('recruitCtrl',['$scope','$http','$rootScope','$ionicLoading','$ionicModal','dataService',function(scope,http,rootScope,load,ionicModal,data){
 
 	rootScope.cityshow = localStorage.getItem('city') || '北京'; //获取缓存城市，默认北京
-	if(rootScope.relist||localStorage.getItem('relist')){ //如果有数据,获取列表信息
-		scope.list = rootScope.relist || JSON.parse(localStorage.getItem('relist'));
+	if(rootScope.relist||Store('relist')){ //如果有数据,获取列表信息
+		scope.list = rootScope.relist || Store('relist');
 		scope.listNum = 10;
 	}
 	scope.txt = localStorage.getItem('text') || '';
@@ -17,41 +17,28 @@ app.controller('recruitCtrl',['$scope','$http','$rootScope','$ionicLoading','$io
 		});
 
 		data.getReData(0,txt,function(res){
+			console.log(res)
 			if(!res.data.disp_data){
 				scope.showdata = false;
 				return;
 			}
+			console.log(scope)
 			scope.list = res.data.disp_data;
-			localStorage.setItem('relist',JSON.stringify(scope.list));
+			Store('relist',scope.list);
 			localStorage.setItem('text',txt)
 			load.hide();
+			scope.txt = txt;
 			scope.showdata = true;
 			scope.listNum = 10;
 		})
 	}
 
 
-	function Debounce(func, wait){
-	   var timeout = null;
-	   return function(){
-	      var args = arguments;
-	      var later = function(){
-	          func.apply(null, args);
-	      }
-	      clearTimeout(timeout)
-	      timeout = setTimeout(later, wait||300)
-	   }
-	   //性能优化
-	}
-
 	//当用户进行频率过快操作时，优化代码性能
 	var alist = document.getElementById('relist');
 
-	alist.ontouchmove=function(){
-		//window.addEventListener(touchmove,)
-		console.log(123)
-		//Debounce(function(){
-		
+	alist.addEventListener('touchmove',Debounce(function(){
+		console.log('进行了滚动')	
 		var alist = document.getElementById('relist');
 		var ascroll = document.getElementsByClassName('scroll')[0];
 	    if(scope.flag&&alist.parentNode.clientHeight-document.documentElement.clientHeight+88+parseInt(ascroll.style.transform.split(', ')[1])<20){
@@ -60,6 +47,7 @@ app.controller('recruitCtrl',['$scope','$http','$rootScope','$ionicLoading','$io
 	   	 	console.log('进行加载')
 	   	 	var num = scope.listNum,
 	   	 		txt = scope.txt;
+	   	 		console.log(txt)
 	   	    data.getReData(num,txt,function(res){
 	   	    	console.log(res)	   	    	
 	   	    	if(!res.data.disp_data){
@@ -73,8 +61,8 @@ app.controller('recruitCtrl',['$scope','$http','$rootScope','$ionicLoading','$io
 	   	    })
 	   }
 
-	//},200)
-}
+	}))
+
 
 	ionicModal.fromTemplateUrl('/phone/widget/city.html', {  //声明选择城市弹窗
 	     scope: scope,
